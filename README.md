@@ -7,7 +7,7 @@ This a javascript project.
 
 ## Overview
 This is a Solar system game, which have all the planets rotating around the sun.
-The players job is to save our planet the earth from astroids, meterioids or from other solar system objects.
+The players job is to save our planet the earth from astroids, meterioids or other solar system objects.
 
 
 ## Functionality
@@ -16,7 +16,11 @@ The players job is to save our planet the earth from astroids, meterioids or fro
 
 ## Technologies, Libraries, APIs
   * Canvas
-  * Webpack
+  * Webpack 
+
+## Wireframes
+
+Desktop/pro-wireframe.png
 
 ## Implementation Timeline
   * ***Prep for project:*** Become familier with libraries 
