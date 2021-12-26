@@ -20,7 +20,7 @@ The players job is to save our planet the earth from astroids, meterioids or fro
 
 ## Wireframes
 
-Desktop/pro-wireframe.png
+<img src="./images/pro-wireframe.png">
 
 ## Implementation Timeline
   * ***Prep for project:*** Become familier with libraries 
