@@ -19,3 +19,5 @@ The players job is to save our planet the earth from astroids, meterioids or fro
   * Webpack
 
 ## Implementation Timeline
+  * ***Prep for project*** Become familier with libraries 
+  * Day 1: Create the project files and create basic framework to run the game.
