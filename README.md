@@ -24,7 +24,7 @@ The player's job is to save our planet the earth from asteroids/ comets /other s
 ## Technologies, Libraries, APIs
   * Canvas API
   * Webpack 
-  * 
+  * node.js
 
 ## Wireframes
 
@@ -33,8 +33,8 @@ The player's job is to save our planet the earth from asteroids/ comets /other s
 
 ## Implementation Timeline
   * **Prep for project:** Become familier with libraries and create the project files and README.
-  * **Day 1:** Create the project files and create basic framework to run the game.
-  * **Day 2:** 
+  * **Day 1:** Create basic framework to run the game. Draw stationary Sun and planets
+  * **Day 2:**  Write code for moving the planets and a moving gun
   * **Day 3:** 
   * **Day 4:** 
   * **Day 5:** 
@@ -42,4 +42,4 @@ The player's job is to save our planet the earth from asteroids/ comets /other s
   * **Day 7:** 
 
 ## Bonus features
-  * Add options for reflecting the comets
+  * Add option for reflecting the comets insted shooting them
