@@ -12,7 +12,7 @@ Game will be setup in our solar system which will have a stationary sun and plan
 
   In Save The Earth, the game's features will be:
 
-  * Game will be timer based (no score). Player's job is to save Earth from comets within the time limit.
+  * Game will be timer based (no score). Player's job is to save Earth from comets      within the time limit.
   * Player will able to Start, pause the game.
   * Pause and start button for music.
   * Game will have multiple levels.
@@ -22,13 +22,13 @@ Game will be setup in our solar system which will have a stationary sun and plan
 
 ## Technologies, Libraries, APIs
 
-  * Canvas API to create solay sytem and comets.
+  * Canvas API to create solar sytem and comets.
   * Webpack to bundle and transpile the source Javascript code
-  * node.js and npm to manage project dependencies
+  * node.js/npm to manage project dependencies
 
 ## Wireframes
 
-<img src="./images/pro-wireframe.png">
+<img src="./images/wireframe.png">
 
 
 ## Implementation Timeline
