@@ -1,3 +1,4 @@
+import "./styles/canvas.css";
 import {Planet} from './scripts/planets';
 import {Star} from './scripts/star';
 
@@ -8,9 +9,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     ctx.width = "600";
     ctx.height = "600";
     
-    moveTo(100, 0);
+    // moveTo(100, 0);
     // lineTo(200,100);
-    ctx.stroke();
+    // ctx.stroke();
     console.log("everything is fine, you can do this");
 
    

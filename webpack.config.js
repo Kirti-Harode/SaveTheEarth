@@ -23,12 +23,13 @@ const config = {
       {
         test: /\.s?[ac]ss$/, // applies to css/scss/sass files
         use: [
-          MiniCssExtractPlugin.loader, // create bundled css file
-          {
-            loader: 'css-loader', // resolves @import statements
-            options: { url: false } // don't resolve url() statements
-          },
-          'sass-loader', // compiles sass to css
+          "style-loader", "css-loader", "sass-loader"
+          // MiniCssExtractPlugin.loader, // create bundled css file
+          // {
+          //   loader: 'css-loader', // resolves @import statements
+          //   options: { url: false } // don't resolve url() statements
+          // },
+          // 'sass-loader', // compiles sass to css
         ]
       }
     ],
