@@ -28,7 +28,7 @@ Game will be setup in our solar system which will have a stationary sun and plan
 
 ## Wireframes
 
-<img src="./images#wireframe.png">
+<img src="/images#wireframe.png">
 
 
 ## Implementation Timeline

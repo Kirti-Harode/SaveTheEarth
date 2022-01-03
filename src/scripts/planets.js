@@ -2,17 +2,7 @@
 const canvas = document.getElementById("mycanvas");
 const ctx = canvas.getContext("2d");
 
-// canvas.width = innerWidth;
-// canvas.height = innerHeight;
 
-// addEventListener('resize', () => {
-//     canvas.width = innerWidth;
-//     canvas.height = innerHeight;
-
-// //    this.draw();
-// });
-
-// ctx.moveTo(250, 50)
 export class Planet{
     constructor(x, y, radius, color, vel, orbitRadius){
         this.x = x;
@@ -32,7 +22,7 @@ export class Planet{
         };
 
         // this.draw();
-        this.update();
+        // this.update();
         // this.animate()
     }
 
@@ -60,15 +50,16 @@ export class Planet{
         ctx.arc(this.x, this.y, this.radius, 0, (Math.PI * 2), false);
         ctx.fillStyle = this.color;
         ctx.fill();
+        // ctx.drawImage(this.image, 0, 0);
         ctx.shadowBlur = 0
 
         // Moon 
-        // if (this.velocity > 0) {
-        //     c.beginPath();
-        //     c.arc(this.moon.x, this.moon.y, 2, 0, Math.PI * 2, false);
-        //     c.fillStyle = 'gray';
-        //     c.fill();
-        // }
+        if (this.velocity > 0) {
+            c.beginPath();
+            c.arc(this.moon.x, this.moon.y, 2, 0, Math.PI * 2, false);
+            c.fillStyle = 'gray';
+            c.fill();
+        }
     }
 
     update(){
@@ -77,11 +68,11 @@ export class Planet{
         if(this.vel > 0){
             this.radian += this.vel;
 
-            // this.moon.radian += this.moon.vel;
-            // this.moon.x =
-            //     this.x + Math.cos(this.moon.radian) * (this.radius + 5);
-            // this.moon.y =
-            //     this.y + Math.sin(this.moon.radian) * (this.radius + 5);
+            this.moon.radian += this.moon.vel;
+            this.moon.x =
+                this.x + Math.cos(this.moon.radian) * (this.radius + 5);
+            this.moon.y =
+                this.y + Math.sin(this.moon.radian) * (this.radius + 5);
 
             this.x = this.startX + Math.cos(this.radian) * this.orbitRadius;
             this.y = this.startY + Math.sin(this.radian) * this.orbitRadius;
