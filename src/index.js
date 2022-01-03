@@ -27,8 +27,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let murcury = new Planet(canvas.width/2,canvas.height/2, 5, 'gray', 5, 65);
     murcury.draw();
     // murcury.animate();
-    murcury.update();
+    // murcury.update();
+    // window.requestAnimationFrame(murcury.animate);
     
+    let venus = new Planet(canvas.width/2,canvas.height/2, 10,'orange', 4, 90 ); 
+    venus.draw();
+    window.requestAnimationFrame(venus.animate);
+    venus.update();
+
+
+    let earth = new Planet(canvas.width/2,canvas.height/2, 15, 'blue', 3, 125); 
+    earth.draw();
+
+    let mars = new Planet(canvas.width/2,canvas.height/2, 20, 'red', 3.5, 175);
+    mars.draw();
 
 
 });
