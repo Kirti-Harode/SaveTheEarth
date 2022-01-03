@@ -1,5 +1,5 @@
-
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
 
 });
