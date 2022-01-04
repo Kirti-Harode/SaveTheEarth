@@ -2,29 +2,37 @@ const canvas = document.getElementById("mycanvas");
 const ctx = canvas.getContext("2d");
 
 export class Comet {
-    constructor (){
-        this.x = 0;
-        this.y = 10;
-        this.radius = 4;
-        this.vel = 8/1000;
-        this.color = "#505050";
-        this.num_comets = 10;
+    constructor (x, y, radius, color){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.dx = (Math.random() * 2) + 1;
+        
+        this.dy = (Math.random() * 2) + 1;
+
+        // this.num_comets = 10;
+
     }
 
-    // addComets(){
-    //     for(let i = 0; i < this.num_comets; i++){
-
-    //     }
-    // }
-
     draw(){
-        this.y += 1;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
         ctx.fill();
+    }
 
-        setInterval(this.draw, 10);
+    move(){
+        this.draw();
+        this.x += this.dx;
+        this.y += this.dy;
+
+        if((this.x + this.radius) > canvas.width || (this.x - this.radius) < 0){
+            this.dx = -this.dx;
+        }
+        if((this.y + this.radius) > canvas.width || (this.y - this.radius) < 0){
+            this.dy = -this.dy;
+        }
     }
 
    

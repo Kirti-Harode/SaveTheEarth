@@ -1,7 +1,7 @@
 import "./styles/canvas.css";
 import {Planet} from './scripts/planets';
 import {Star} from './scripts/star';
-import {Comets} from './scripts/comets';
+import {Comet} from './scripts/comets';
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const canvas = document.getElementById("mycanvas");
@@ -38,7 +38,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
         stars.push(new Star());
     }
 
-    let comets = 
+    let comets = [];
+    for(let i = 0; i < 10; i++){
+        let radius = Math.floor(Math.random() * 15) + 5;
+        let x = Math.random() * (canvas.width - radius * 2) + radius;
+        let y = Math.random() * (canvas.height - radius * 2) + radius;
+        let color = "#505050";
+        comets.push(new Comet(x, y, radius, color));
+    }
     
     function animate(){
         window.requestAnimationFrame(animate);
@@ -56,12 +63,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
         stars.forEach(star =>{
             star.draw();
         });
+
+        
         mercury.update();
         venus.update();
         earth.update();
         mars.update();
         jupiter.update();
         
+        comets.forEach(comet =>{
+            comet.move();
+        });
     }
     animate();
 });
