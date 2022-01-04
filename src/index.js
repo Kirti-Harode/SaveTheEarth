@@ -7,30 +7,50 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const canvas = document.getElementById("mycanvas");
     const ctx = canvas.getContext("2d");
 
-    ctx.width = "600";
-    ctx.height = "600";
+    ctx.width = "900";
+    ctx.height = "800";
     
     
     console.log("everything is fine, you can do this");
 
-    // let sunImg = new Image();
-    // sunImg.src = '/images/sun.jpg';
+    let sunImg = new Image();
+    sunImg.src = '../images/sun.jpg';
 
-    let sun = new Planet(canvas.width/2, canvas.height/2, 50, "yellow", 0, 0); 
-   
-    let mercury = new Planet(canvas.width/2,canvas.height/2, 5, 'gray', 25/1000, 65);
+    let mercuryImg = new Image();
+    mercuryImg.src = '../images/mercury_alpha.png';
+
+    let venusImg = new Image();
+    venusImg.src = '../images/venus_alpha.png';
+
+    let earthImg = new Image();
+    earthImg.src = '../images/earth_alpha.png';
+
+
+    let marsImg = new Image();
+    marsImg.src = '../images/mars_alpha.png';
+
+    let jupiterImg = new Image();
+    jupiterImg.src = '../images/jupiter_alpha.png';
+
+    let sun = new Planet((canvas.width/2 - sunImg.width/2), (canvas.height/2 - sunImg.height/2), 50, sunImg, 0, 0); 
+    sun.draw();
+
+    let mercury = new Planet((canvas.width/2 - mercuryImg.width/2),(canvas.height/2 - mercuryImg.height/2), 5, mercuryImg, 25/1000, 120);
     mercury.draw();
 
-    let venus = new Planet(canvas.width/2,canvas.height/2, 15,'orange', 10/1000, 100 ); 
+    let venus = new Planet((canvas.width/2 - venusImg.width/2),(canvas.height/2 - venusImg.height/2), 15, venusImg, 10/1000, 180 ); 
     venus.draw();
 
-    let earth = new Planet(canvas.width/2,canvas.height/2, 20, 'blue', 4/1000, 175); 
+    let earth = new Planet((canvas.width/2 - earthImg.width/2),(canvas.height/2 - earthImg.height/2), 20, earthImg, 4/1000, 230); 
     earth.draw();
-   
-    let mars = new Planet(canvas.width/2,canvas.height/2, 18, 'red', 3.5/1000, 250);
-    mars.draw();
 
-    let jupiter = new Planet(canvas.width/2,canvas.height/2, 30, 'orange', 1.5/1000, 350);
+    let mars = new Planet((canvas.width/2 - marsImg.width/2),(canvas.height/2 - marsImg.height/2), 20, marsImg, 3/1000, 310); 
+    mars.draw();
+   
+    // let mars = new Planet(canvas.width/2,canvas.height/2, 18, 'red', 3.5/1000, 250);
+    // mars.draw();
+
+    let jupiter = new Planet((canvas.width/2 - jupiterImg.width/2),(canvas.height/2 - jupiterImg.height/2), 30, jupiterImg, 1.5/1000, 450);
     jupiter.draw();
    
     let stars = [];

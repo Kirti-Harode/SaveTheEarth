@@ -4,11 +4,11 @@ const ctx = canvas.getContext("2d");
 
 
 export class Planet{
-    constructor(x, y, radius, color, vel, orbitRadius){
+    constructor(x, y, radius, image, vel, orbitRadius){
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.color = color;
+        this.image = image;
         this.vel = vel;
         this.orbitRadius = orbitRadius;
         this.startX = x;
@@ -46,13 +46,13 @@ export class Planet{
 
             // planet
         // ctx.globalCompositeOperation = 'destination-over';
-        ctx.shadowBlur = 15;
-        ctx.shadowClor = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, (Math.PI * 2), false);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-        // ctx.drawImage(this.image, 0, 0);
+      //  ctx.shadowBlur = 15;
+       // ctx.shadowClor = this.color;
+       // ctx.beginPath();
+       // ctx.arc(this.x, this.y, this.radius, 0, (Math.PI * 2), false);
+        //ctx.fillStyle = this.color;
+       // ctx.fill();
+        ctx.drawImage(this.image, this.x, this.y);
         ctx.shadowBlur = 0
 
         // Moon 

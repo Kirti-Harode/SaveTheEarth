@@ -35,5 +35,8 @@ export class Comet {
         }
     }
 
+    colision(otherObject){
+
+    }
    
 }
