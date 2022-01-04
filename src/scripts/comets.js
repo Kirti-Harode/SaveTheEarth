@@ -1,3 +1,5 @@
+import { Planet } from "./planets";
+
 const canvas = document.getElementById("mycanvas");
 const ctx = canvas.getContext("2d");
 
@@ -36,7 +38,9 @@ export class Comet {
     }
 
     colision(otherObject){
-
+        if(otherObject instanceof Planet){
+            this.remove();
+        }
     }
    
 }
