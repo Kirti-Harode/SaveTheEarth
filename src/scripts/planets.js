@@ -56,12 +56,12 @@ export class Planet{
         ctx.shadowBlur = 0
 
         // Moon 
-        if (this.velocity > 0) {
+       /* if (this.velocity > 0) {
             c.beginPath();
             c.arc(this.moon.x, this.moon.y, 2, 0, Math.PI * 2, false);
             c.fillStyle = 'gray';
             c.fill();
-        }
+        }*/
     }
 
     update(){
