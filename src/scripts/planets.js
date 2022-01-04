@@ -14,12 +14,13 @@ export class Planet{
         this.startX = x;
         this.startY = y;
         this.radian = 0;
-        this.moon = {
-            x: this.x + this.orbitRadius + this.radius,
-            y,
-            radian: 0,
-            vel: (Math.random() + 0.1) / 30
-        };
+        
+        // this.moon = {
+        //     x: this.x + this.orbitRadius + this.radius,
+        //     y,
+        //     radian: 0,
+        //     vel: (Math.random() + 0.1) / 30
+        // };
 
         // this.draw();
         // this.update();
@@ -44,6 +45,7 @@ export class Planet{
         // ctx.stroke();
 
             // planet
+        // ctx.globalCompositeOperation = 'destination-over';
         ctx.shadowBlur = 15;
         ctx.shadowClor = this.color;
         ctx.beginPath();
@@ -68,11 +70,11 @@ export class Planet{
         if(this.vel > 0){
             this.radian += this.vel;
 
-            this.moon.radian += this.moon.vel;
-            this.moon.x =
-                this.x + Math.cos(this.moon.radian) * (this.radius + 5);
-            this.moon.y =
-                this.y + Math.sin(this.moon.radian) * (this.radius + 5);
+            // this.moon.radian += this.moon.vel;
+            // this.moon.x =
+            //     this.x + Math.cos(this.moon.radian) * (this.radius + 5);
+            // this.moon.y =
+            //     this.y + Math.sin(this.moon.radian) * (this.radius + 5);
 
             this.x = this.startX + Math.cos(this.radian) * this.orbitRadius;
             this.y = this.startY + Math.sin(this.radian) * this.orbitRadius;
