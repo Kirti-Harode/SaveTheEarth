@@ -1,6 +1,7 @@
 const canvas = document.getElementById("mycanvas");
 const ctx = canvas.getContext("2d");
-class Projectile {
+
+export class Projectile {
     constructor(x, y, radius, color, vel){
         this.x = x;
         this.y = y;
@@ -10,6 +11,20 @@ class Projectile {
     }
 
     draw(){
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
 
+    update(){
+        this.draw();
+        this.x += this.vel.x;
+        this.y += this.vel.y;
     }
 }
+
+// addEventListener('click', (event) => {
+//     const bullet = new Projectile(event.clintX, event,clintY, 5, 'red', {x: 1, y: 1});
+//     bullet.draw()
+// })

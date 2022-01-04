@@ -3,6 +3,7 @@ import {Planet} from './scripts/planets';
 import {Star} from './scripts/star';
 import {Comet} from './scripts/comets';
 import {Gun} from './scripts/gun';
+import {Projectile} from './scripts/projectlies';
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -71,6 +72,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
     gunImg.src = '../images/gun_alpha1.png'
 
     let gun = new Gun(450, 860, gunImg);
+
+// draw bullets when click
+    let bullets = [];
+
+    addEventListener('click', (event) => {
+        const radian = Math.atan2( event.clientY - canvas.height/2, event.clientX - canvas.width/2);
+        const velocity = {x: Math.cos(radian), y: Math.sin(radian)};
+
+        const bullet = new Projectile(470, 860, 5, 'white', velocity);
+        bullets.push(bullet);
+        // console.log(event)
+    })
   
 // animate and draw everything on canvas
     function animate(){
@@ -97,10 +110,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
         jupiter.update();
         // draw comets
         comets.forEach(comet =>{
-            comet.move();
+            // comet.move();
         });
         // draw gun
         gun.draw();
+
+        // draw projectile/bullets when click
+        bullets.forEach(bullet => {
+            bullet.update();
+        })
     }
     animate();
 });

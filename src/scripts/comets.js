@@ -1,4 +1,5 @@
 import { Planet } from "./planets";
+import { Projectile } from "./projectlies";
 
 const canvas = document.getElementById("mycanvas");
 const ctx = canvas.getContext("2d");
@@ -38,9 +39,15 @@ export class Comet {
     }
 
     colision(otherObject){
-        if(otherObject instanceof Planet){
-            this.remove();
+        if(otherObject instanceof Projectile){
+            const distance = Math.hypot(otherObject.x - this.x, otherObject.y - this.y)
+            if((distance - this.radius - otherObject.radius) < 1){
+                this.remove();
+                otherObject.remove();
+                return true;
+            }
         }
+        return false;
     }
    
 }
