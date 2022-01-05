@@ -4,10 +4,11 @@ import {Star} from './scripts/star';
 import {Comet} from './scripts/comets';
 import {Gun} from './scripts/gun';
 import {Projectile} from './scripts/projectlies';
+import {Explosion} from './scripts/explosion';
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log(event);
+    // console.log(event);
     const canvas = document.getElementById("mycanvas");
     const ctx = canvas.getContext("2d");
 
@@ -51,8 +52,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 // create comets
     let comets = [];
-    for(let i = 0; i < 2; i++){
-        let radius = Math.floor(Math.random() * 15) + 5;
+    for(let i = 0; i < 5; i++){
+        let radius = Math.floor(Math.random() * 15) + 10;
         let x = Math.random() * (canvas.width - radius * 2) + radius;
         let y = Math.random() * (canvas.height - radius * 2) + radius;
         let color = "#505050";
@@ -80,13 +81,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // console.log(event)
     })
   
+// create explosions 
+    let explosions = [];
+    
 // animate and draw everything on canvas
     let animationId;
     function animate(){
+        animationId = requestAnimationFrame(animate);
         
         // clear canvas and draw again
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgb(0, 0, 0.4)';
+        ctx.fillStyle = 'rgba(0, 0, 0)';
         // ctx.strokeStyle = 'rgba(0,153,255,0.4)'
         // ctx.save();
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -106,6 +111,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
         
         // draw gun
         gun.draw();
+
+        // draw explosion for each comet
+        explosions.forEach((particle, index) => {
+            if(particle.alpha <= 0){
+                explosions.splice(index, 1)
+            }else{
+                particle.update();
+            }
+         })
         // console.log(bullets);
         // draw projectile/bullets when click
         bullets.forEach((bullet, bulletIndex) => {
@@ -118,30 +132,43 @@ window.addEventListener('DOMContentLoaded', (event) => {
         })
         
         // draw comets
-        // console
-        // console.log(comets)
+        
         comets.forEach((comet, cometIndex) =>{
             comet.move();
             
-            // if colids with earth end game 
-            const distance = Math.hypot(earth.x - comet.x, earth.y - comet.y);
-            // if((distance - comet.radius - earth.radius) < 0.5){
-                //     cancelAnimationFrame(animationId);
-                // }
-                // if colids remove comet and bullet
-                bullets.forEach((bullet, bulletIndex) => {   
-                    const distance = Math.hypot(bullet.x - comet.x, bullet.y - comet.y);
-                    if((distance - comet.radius - bullet.radius) < 1){
+            // if colids with earth, end game.
+            // const distance = Math.hypot(earth.x - comet.x, earth.y - comet.y);
+            // if((distance - comet.radius - 50) < 1){
+            //     // cancelAnimationFrame(animationId);
+            //        // break;
+            // }
+            //     // if colids remove comet and bullet
+            bullets.forEach((bullet, bulletIndex) => {   
+                const distance = Math.hypot(bullet.x - comet.x, bullet.y - comet.y);
+                if((distance - comet.radius - bullet.radius) < 1){
+                    comet.color = 'orange';
+
+                    // create explosions
+                     for(let i = 0; i < (comet.radius) * 2; i++){
+                         const evelocity = {x: ((Math.random() - 0.5) * (Math.random() * 8)), y: ((Math.random() - 0.5) * (Math.random() * 8))};
+                         explosions.push(new Explosion(bullet.x, bullet.y, Math.random() * 2, 'orange', evelocity));
+                     }
+                   
+
+                    if(comet.radius-8 > 8){
+                        comet.radius -= 8;
+                        bullets.splice(bulletIndex, 1);
+                    }
+                    else{
                         comets.splice(cometIndex, 1);
                         bullets.splice(bulletIndex, 1);
                     }
-                    
-                })
-            });
-            animationId = requestAnimationFrame(animate);
-        }
-        animate();
-    });
+                }   
+            })
+        });
+    }
+    animate();
+});
     
     
     

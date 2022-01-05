@@ -9,7 +9,7 @@ export class Gun{
 
     draw(){
         // let height = 200 * Math.cos(Math.PI/6);
-        ctx.save();
+        // ctx.save();
         // ctx.translate(this.x, this.y);
         // ctx.rotate(Math.PI);
         ctx.drawImage(this.image, this.x, this.y);

@@ -38,16 +38,16 @@ export class Comet {
         }
     }
 
-    colision(otherObject){
-        if(otherObject instanceof Projectile){
-            const distance = Math.hypot(otherObject.x - this.x, otherObject.y - this.y)
-            if((distance - this.radius - otherObject.radius) < 1){
-                // this.remove();
-                // otherObject.remove();
-                return true;
-            }
-        }
-        return false;
-    }
+    // colision(otherObject){
+    //     if(otherObject instanceof Projectile){
+    //         const distance = Math.hypot(otherObject.x - this.x, otherObject.y - this.y)
+    //         if((distance - this.radius - otherObject.radius) < 1){
+    //             // this.remove();
+    //             // otherObject.remove();
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
    
 }
