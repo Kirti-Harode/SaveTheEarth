@@ -8,11 +8,12 @@ import {Explosion} from './scripts/explosion';
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    // console.log(event);
     const canvas = document.getElementById("mycanvas");
     const ctx = canvas.getContext("2d");
 
     console.log("everything is fine, you can do this");
+
+
 // get new image for each planet from the image folder
     let sunImg = new Image();
     sunImg.src = '../images/sun.jpg';
@@ -81,7 +82,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
         bullets.push(bullet);
         // console.log(event)
     })
-  
+    function timer(){
+        // get timer by id
+        let timeId = document.getElementById("timeId");
+        // decrease timer by 1 sec
+        let time = 10;
+        setTimeout(function(){
+            // console.log(timerId);
+            if(time > 0){
+                time--;
+                timeId.innerHTML = time;
+            }
+           
+            // console.log(timeId.innerHTML);
+        }, 1000);
+    }
+
 // create explosions 
     let explosions = [];
     
@@ -137,11 +153,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         comets.forEach((comet, cometIndex) =>{
             comet.move();
             
-            // if colids with earth, end game.
+            // if collides with the earth, end game.
             const distance = Math.hypot(earth.x - comet.x, earth.y - comet.y);
-            if((distance - comet.radius - 50) < 0.5){
-                // cancelAnimationFrame(animationId);
-                   // break;
+            if((distance - comet.radius - earthImg.width + 10) < 0.5){
+               // cancelAnimationFrame(animationId);
             }
             //     // if colids remove comet and bullet
             bullets.forEach((bullet, bulletIndex) => {   
@@ -167,8 +182,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 }   
             })
         });
+        
+        timer();
     }
     animate();
+    
 });
     
     

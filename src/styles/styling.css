@@ -22,8 +22,6 @@ body {
     position: relative;
 }
 
-
-
 #gameName{
     position: absolute;              
     left: 30%;                     
@@ -34,7 +32,7 @@ body {
     /* font-family: cursive, Brush Script MT; */
     font-style: italic;
     user-select: none;
-    color:rgb(44, 63, 231);
+    color:rgb(27, 107, 199);
 }
 
 #timer{
@@ -47,7 +45,8 @@ body {
     padding-left: 10px;
     padding-top: 5px;
     user-select: none;
-    color:rgb(230, 25, 18);
+    color:rgb(216, 200, 240);
+    font-size: 30px;
 }
 
 #links{
