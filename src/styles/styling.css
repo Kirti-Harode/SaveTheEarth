@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -23,13 +22,30 @@ body {
     position: relative;
 }
 
+
+
+#gameName{
+    position: absolute;              
+    left: 30%;                     
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: fantasy, papyrus;
+    /* font-family: cursive, Brush Script MT; */
+    font-style: italic;
+    user-select: none;
+    color:rgb(44, 63, 231);
+}
+
 #timer{
     position: absolute;
-    width: 100px;
+    /* width: 100px;
     height: 30px;
     background-color: rgb(85, 32, 32);
     border-radius: 10px;
-    border: 2px solid #ccc;
+    border: 2px solid #ccc; */
     padding-left: 10px;
     padding-top: 5px;
+    user-select: none;
+    color:rgb(230, 25, 18);
 }

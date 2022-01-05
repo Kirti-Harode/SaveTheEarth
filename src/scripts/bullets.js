@@ -1,7 +1,7 @@
 const canvas = document.getElementById("mycanvas");
 const ctx = canvas.getContext("2d");
 
-export class Projectile {
+export class Bullet {
     constructor(x, y, radius, color, vel){
         this.x = x;
         this.y = y;
@@ -23,8 +23,3 @@ export class Projectile {
         this.y += this.vel.y ;
     }
 }
-
-// addEventListener('click', (event) => {
-//     const bullet = new Projectile(event.clintX, event,clintY, 5, 'red', {x: 1, y: 1});
-//     bullet.draw()
-// })

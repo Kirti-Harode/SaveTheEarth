@@ -1,5 +1,5 @@
-import { Planet } from "./planets";
-import { Projectile } from "./projectlies";
+// import { Planet } from "./planets";
+// import { Bullet } from "./bullets";
 
 const canvas = document.getElementById("mycanvas");
 const ctx = canvas.getContext("2d");
@@ -23,6 +23,15 @@ export class Comet {
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
         ctx.fill();
+        
+        // ctx.fillStyle = '#f00';
+        // ctx.beginPath();
+        // ctx.moveTo(0, 0);
+        // ctx.lineTo(100,50);
+        // ctx.lineTo(50, 100);
+        // ctx.lineTo(0, 90);
+        // ctx.closePath();
+        // ctx.fill();
     }
 
     move(){
@@ -38,16 +47,4 @@ export class Comet {
         }
     }
 
-    // colision(otherObject){
-    //     if(otherObject instanceof Projectile){
-    //         const distance = Math.hypot(otherObject.x - this.x, otherObject.y - this.y)
-    //         if((distance - this.radius - otherObject.radius) < 1){
-    //             // this.remove();
-    //             // otherObject.remove();
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-   
 }

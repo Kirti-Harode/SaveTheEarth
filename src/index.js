@@ -3,7 +3,7 @@ import {Planet} from './scripts/planets';
 import {Star} from './scripts/star';
 import {Comet} from './scripts/comets';
 import {Gun} from './scripts/gun';
-import {Projectile} from './scripts/projectlies';
+import {Bullet} from './scripts/bullets';
 import {Explosion} from './scripts/explosion';
 
 
@@ -56,7 +56,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let radius = Math.floor(Math.random() * 15) + 10;
         let x = Math.random() * (canvas.width - radius * 2) + radius;
         let y = Math.random() * (canvas.height - radius * 2) + radius;
-        let color = "#505050";
+        // let color = "#505050";
+        let color = "grey";
         comets.push(new Comet(x, y, radius, color));
     }
 // create a gun
@@ -74,9 +75,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // const radian = Math.atan2( event.clientY - canvas.height/2, event.clientX - canvas.width/2);
         const radian = Math.atan2( event.clientY - 860, event.clientX - 470);
 
-        const velocity = {x: Math.cos(radian) * 10, y: Math.sin(radian) * 10};
+        const velocity = {x: Math.cos(radian) * 20, y: Math.sin(radian) * 20};
 
-        const bullet = new Projectile(470, 860, 5, 'white', velocity);
+        const bullet = new Bullet(470, 860, 5, 'white', velocity);
         bullets.push(bullet);
         // console.log(event)
     })
@@ -121,7 +122,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }
          })
         // console.log(bullets);
-        // draw projectile/bullets when click
+        // draw bullets when click
         bullets.forEach((bullet, bulletIndex) => {
             bullet.update();
             // remove bullet from edges 
@@ -137,11 +138,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             comet.move();
             
             // if colids with earth, end game.
-            // const distance = Math.hypot(earth.x - comet.x, earth.y - comet.y);
-            // if((distance - comet.radius - 50) < 1){
-            //     // cancelAnimationFrame(animationId);
-            //        // break;
-            // }
+            const distance = Math.hypot(earth.x - comet.x, earth.y - comet.y);
+            if((distance - comet.radius - 50) < 0.5){
+                // cancelAnimationFrame(animationId);
+                   // break;
+            }
             //     // if colids remove comet and bullet
             bullets.forEach((bullet, bulletIndex) => {   
                 const distance = Math.hypot(bullet.x - comet.x, bullet.y - comet.y);
