@@ -34,10 +34,10 @@ Game will be setup in our solar system which will have a stationary sun and plan
 ## Implementation Timeline
 
   * **Prep for project:** Become familier with libraries and create the project files and README.
-  * **Day 1:**  Create basic framework to run the game. Draw different radius circle to represent stationary Sun and planets
+  * **Day 1:**  Create basic framework to run the game. Draw different sizes of circle to represent stationary Sun and planets
   * **Day 2:**  Write code for moving the planets and add planet images, write code for drawing different size stars, and make a stationary gun.
   * **Day 3:**  Code for firing bullets from gun in the direction of comet, conduct testing to check everything is working as intended.
-  * **Day 4:**  Code for detecting collision (earth and comet, comet and bullet), when collids with comet change color of bigger comet and make them small, and disappear them.
+  * **Day 4:**  Code for detecting collision (earth and comet, comet and bullet), when collids with comet change color of bigger comet and make them small, and disappear comet and bullet.
   * **Day 5:**  Code for showing explosion when colids, set timer, add start game button and when times up or comet hit the earth display Game over message.
   * **Day 6:**  Add more level (increase no of comets and there velocity as level increases)
   * **Day 7:** Add github and linkdin links, Testing and submission.
