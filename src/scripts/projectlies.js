@@ -19,8 +19,8 @@ export class Projectile {
 
     update(){
         this.draw();
-        this.x += this.vel.x * 2;
-        this.y += this.vel.y * 2;
+        this.x += this.vel.x ;
+        this.y += this.vel.y ;
     }
 }
 

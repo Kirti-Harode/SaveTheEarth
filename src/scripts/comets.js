@@ -10,9 +10,9 @@ export class Comet {
         this.y = y;
         this.radius = radius;
         this.color = color;
-        this.dx = (Math.random() * 2) + 1;
+        this.dx = (Math.random() * 1) + 1;
         
-        this.dy = (Math.random() * 2) + 1;
+        this.dy = (Math.random() * 1) + 1;
 
         // this.num_comets = 10;
 

@@ -66,7 +66,7 @@ export class Planet{
 
     update(){
         this.draw();
-        
+        console.log(this);
         if(this.vel > 0){
             this.radian += this.vel;
 

@@ -7,13 +7,10 @@ import {Projectile} from './scripts/projectlies';
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    console.log(event);
     const canvas = document.getElementById("mycanvas");
     const ctx = canvas.getContext("2d");
 
-    ctx.width = "900";
-    ctx.height = "800";
-    
-    
     console.log("everything is fine, you can do this");
 // get new image for each planet from the image folder
     let sunImg = new Image();
@@ -71,10 +68,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let bullets = [];
 
     addEventListener('click', (event) => {
+        // console.log(event);
+        // console.log(bullets);
         // const radian = Math.atan2( event.clientY - canvas.height/2, event.clientX - canvas.width/2);
         const radian = Math.atan2( event.clientY - 860, event.clientX - 470);
 
-        const velocity = {x: Math.cos(radian), y: Math.sin(radian)};
+        const velocity = {x: Math.cos(radian) * 10, y: Math.sin(radian) * 10};
 
         const bullet = new Projectile(470, 860, 5, 'white', velocity);
         bullets.push(bullet);
@@ -84,13 +83,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 // animate and draw everything on canvas
     let animationId;
     function animate(){
-       animationId = window.requestAnimationFrame(animate);
         
         // clear canvas and draw again
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'rgb(0, 0, 0.4)';
-        ctx.strokeStyle = 'rgba(0,153,255,0.4)'
-        ctx.save();
+        // ctx.strokeStyle = 'rgba(0,153,255,0.4)'
+        // ctx.save();
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         // draw sun
         sun.draw();
@@ -98,48 +96,52 @@ window.addEventListener('DOMContentLoaded', (event) => {
         stars.forEach(star =>{
             star.draw();
         });
-
+        
         // draw and rotate planets
         mercury.update();
         venus.update();
         earth.update();
         mars.update();
         jupiter.update();
-
+        
         // draw gun
-         gun.draw();
-
+        gun.draw();
+        // console.log(bullets);
         // draw projectile/bullets when click
         bullets.forEach((bullet, bulletIndex) => {
             bullet.update();
             // remove bullet from edges 
             if((bullet.x + bullet.radius < 0) || (bullet.x - bullet.radius > canvas.width) ||
-               (bullet.y + bullet.radius < 0) || (bullet.y - bullet.radius > canvas.height)){
+            (bullet.y + bullet.radius < 0) || (bullet.y - bullet.radius > canvas.height)){
                 bullets.splice(bulletIndex, 1);
             }
         })
-
+        
         // draw comets
+        // console
+        // console.log(comets)
         comets.forEach((comet, cometIndex) =>{
             comet.move();
-
+            
             // if colids with earth end game 
             const distance = Math.hypot(earth.x - comet.x, earth.y - comet.y);
-            if((distance - comet.radius - earth.radius) < 0.5){
-                cancelAnimationFrame(animationId);
-            }
-            // if colids remove comet and bullet
-            bullets.forEach((bullet, bulletIndex) => {   
-                const distance = Math.hypot(bullet.x - comet.x, bullet.y - comet.y);
-                if((distance - comet.radius - bullet.radius) < 1){
-                    comets.splice(cometIndex, 1);
-                    bullets.splice(bulletIndex, 1);
-                }
-
-            })
-        });
-    }
-    animate();
-});
-
-
+            // if((distance - comet.radius - earth.radius) < 0.5){
+                //     cancelAnimationFrame(animationId);
+                // }
+                // if colids remove comet and bullet
+                bullets.forEach((bullet, bulletIndex) => {   
+                    const distance = Math.hypot(bullet.x - comet.x, bullet.y - comet.y);
+                    if((distance - comet.radius - bullet.radius) < 1){
+                        comets.splice(cometIndex, 1);
+                        bullets.splice(bulletIndex, 1);
+                    }
+                    
+                })
+            });
+            animationId = requestAnimationFrame(animate);
+        }
+        animate();
+    });
+    
+    
+    
