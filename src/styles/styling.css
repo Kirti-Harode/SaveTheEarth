@@ -49,3 +49,15 @@ body {
     user-select: none;
     color:rgb(230, 25, 18);
 }
+
+#links{
+    position: absolute;
+    user-select: none;
+    padding-left: 840px;
+    padding-top: 50px;
+    margin-bottom: 5px;
+}
+
+#links div{
+    padding-top: 10px;
+}
