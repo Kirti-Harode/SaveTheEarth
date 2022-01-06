@@ -235,11 +235,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
      
 // function to restart everything
-    function init(){
-        comets = [];
-        bullets = [];
-        clearInterval(myInterval);
-    }
+    // function init(){
+    //     comets = [];
+    //     bullets = [];
+    //     clearInterval(myInterval);
+    // }
 
 
     window.addEventListener("colision", (event)=>{
