@@ -168,8 +168,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 window.dispatchEvent(customEvent);
                 
                 ctx.drawImage(explosion, earth.x, earth.y);
-                
-                // cancelAnimationFrame(animationId);
             }
             
             // if colids remove comet and bullet
