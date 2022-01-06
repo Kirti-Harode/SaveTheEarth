@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 // create comets
     let comets = [];
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < 5; i++){
         let radius = Math.floor(Math.random() * 15) + 10;
         let x = Math.random() * (canvas.width - radius * 2) + radius;
         let y = Math.random() * (canvas.height - radius * 2) + radius;
