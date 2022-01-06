@@ -50,8 +50,6 @@ The game is set up in our solar system which has a stationary sun and planets re
   * **Day 3:**  Code for firing bullets from the gun in the direction of the comet and conduct testing to check everything is working as intended.
   * **Day 4:**  Code for detecting collision (earth and comet, comet and bullet), when collides with comet change color of the bigger comet and make them small, and then disappear comet and bullet.
   
-    * Detecting collision between earth and a comet was challenging, I used an image for the earth and a circle for the comet, and since the earth, is always rotating so it was difficult to figure out the math to get min distance between their center points.
-
     * Detecting collision between earth and a comet was challenging, I used an image for the earth and a circle for the comet, and since the earth, is always rotating so it was difficult to figure out the math to get min distance between their center points.I figured it out by adding half of the width and height of the earth image with the position of the earth on canvas on the x-axis and y-axis respectively. And then used the Pythagoras theorem to calculate the distance between the center point of the earth image and the comet.
 
       ```js
