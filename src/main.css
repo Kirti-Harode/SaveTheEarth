@@ -158,9 +158,11 @@ body {
     /* padding-left: 190px; */
 }
 #slogon2{
+    
     /* padding-left: 100px; */
 }
 #image{
+    display: flex;
     /* position: absolute; */
     
 }
