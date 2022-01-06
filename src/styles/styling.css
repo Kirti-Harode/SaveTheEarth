@@ -1,7 +1,6 @@
 .game{
-    background-image: url('/images/dark1.png');
-    /* background-image: url('/images/dark2.jpeg'); */
-    /* background-image: url('/images/un.jpeg'); */
+    background-image: url('/images/milkyway.jpeg');
+    
 }
 * {
     margin: 0;
@@ -85,6 +84,7 @@ body {
 }
 
 #start{
+    display: relative;
     position: absolute;
     top: 350px;
     left: 200px;
@@ -110,18 +110,60 @@ body {
 
 #welcome{
     padding-bottom: 50px;
-    padding-left: 1px;
-    color: rgb(157, 207, 107);
+    color: rgb(235, 210, 70);
     font-size: 20px;
 }
-/* 
-#title{
-    padding-bottom: 10px;
-    padding-left: 10px;
-    color: rgb(157, 207, 107);
-    font-size: 50px;
-    font-weight: bolder;
-} */
+
 #startButton:hover{
     background-color: rgb(124, 66, 233);
 }
+
+#stop{
+    display: none;
+    position: absolute;
+    top: 350px;
+    left: 200px;
+    width: 600px;
+    height: 260px;
+    background-color: rgb(187, 142, 230);
+    border-radius: 20px;
+    font-family: fantasy, papyrus;
+}
+
+#restartButton{
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 310px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgb(102, 30, 218);
+    font-size: 24px;
+}
+#colision{
+    padding-top: 20px;
+    padding-bottom: 2px;
+    padding-left: 200px;
+    color: rgb(19, 24, 14);
+    font-size: 20px;
+}
+
+#restartButton:hover{
+    background-color: rgb(124, 66, 233);
+}
+
+#slogon p{
+   padding-top: 20px;
+    padding-left: 190px;
+}
+#slogon2{
+    padding-left: 100px;
+}
+#image{
+    position: absolute;
+    
+}
+#buttonId{
+    padding-top: 20px;
+    padding-left: 200px;
+}
+

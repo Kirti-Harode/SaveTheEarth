@@ -14,7 +14,7 @@ export class Gun{
         // ctx.rotate(Math.PI);
         ctx.drawImage(this.image, this.x, this.y);
         // ctx.restore();
-        ctx.shadowBlur = 0
+        ctx.shadowBlur = 0;
         // ctx.beginPath();
         // ctx.moveTo(400, 600);
         // ctx.lineTo(450, 800);

@@ -5,20 +5,27 @@ import {Comet} from './scripts/comets';
 import {Gun} from './scripts/gun';
 import {Bullet} from './scripts/bullets';
 import {Explosion} from './scripts/explosion';
-import {updateTimer} from './scripts/game'
+
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const canvas = document.getElementById("mycanvas");
     const ctx = canvas.getContext("2d");
 
     console.log("everything is fine, you can do this");
-
+    let isColid = false;
 // get start button id
     let startButton = document.getElementById("startButton");
 // get timer id
     let timeId = document.getElementById("timeId");
 // get start model id
     let startBar = document.getElementById("start");
+// get collision model id
+    let stopId = document.getElementById("stop")
+// get restart button id
+    let restartButton = document.getElementById("restartButton")
+// explosion image
+    let explosion = new Image();
+    explosion.src = '../images/explosion3d_alpha 2.png'
 // get new image for each planet from the image folder
     let sunImg = new Image();
     sunImg.src = '../images/sun.jpg';
@@ -89,26 +96,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
     
 
-// countdown timer 
-    let startMinute = 1;
-    let time = startMinute * 60;
 
-    setInterval(updateTimer, 1000);
-
-    function updateTimer(){
-        let minutes = Math.floor(time/60);
-        let seconds = time % 60
-
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-
-        timeId.innerHTML = `${minutes}:${seconds}`;
-        if(time > 0){
-            time--;
-        }
-        // if(time === 0){
-        //     timeId.innerHTML = `${minutes}:${seconds}`;
-        // }
-    }
 
 // create explosions 
     let explosions = [];
@@ -161,16 +149,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
         })
         
         // draw comets
-        
+   
         comets.forEach((comet, cometIndex) =>{
             comet.move();
-            
             // if collides with the earth, end game.
             const distance = Math.hypot((earth.x + earthImg.width/2 )- comet.x, (earth.y + earthImg.height/2) - comet.y);
-            if((distance - comet.radius - earthImg.width/2 ) < -10){
-               cancelAnimationFrame(animationId);
+            if((distance - comet.radius - earthImg.width/2 ) < -9.9){
+                isColid = true;
+                ctx.drawImage(explosion, earth.x, earth.y);
+                cancelAnimationFrame(animationId);
             }
-            //     // if colids remove comet and bullet
+            
+            // if colids remove comet and bullet
             bullets.forEach((bullet, bulletIndex) => {   
                 const distance = Math.hypot(bullet.x - comet.x, bullet.y - comet.y);
                 if((distance - comet.radius - bullet.radius) < 1){
@@ -181,7 +171,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                          const evelocity = {x: ((Math.random() - 0.5) * (Math.random() * 8)), y: ((Math.random() - 0.5) * (Math.random() * 8))};
                          explosions.push(new Explosion(bullet.x, bullet.y, Math.random() * 2, 'orange', evelocity));
                      }
-                   
 
                     if(comet.radius - 8 > 8){
                         comet.radius -= 8;
@@ -194,14 +183,40 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 }   
             })
         });
-        
+        if(isColid){
+            stopId.style.display = "absolute";  
+        }
     }
+    
+ // when clicked on start game button start the game
     startButton.addEventListener("click", (event)=>{
         animate();
+        // console.log(startBar.style.display)
         startBar.style.display = "none";
+
+        // countdown timer 
+        let startMinute = 1;
+        let time = startMinute * 60;
+        setInterval(updateTimer, 1000);
+        function updateTimer(){
+            let minutes = Math.floor(time/60);
+            let seconds = time % 60
+
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            timeId.innerHTML = `${minutes}:${seconds}`;
+            if(time > 0){
+                time--;
+            }
+        }  
     })
-    
-    
+
+// when clicked on restart game button start the game
+    restartButton.addEventListener("click", (event)=>{
+        animate();
+        stopId.style.display = "none";
+        
+    })
 });
     
     
