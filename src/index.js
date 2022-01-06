@@ -1,4 +1,4 @@
-import "./styles/styling.css";
+import "./main.css";
 import {Planet} from './scripts/planets';
 import {Star} from './scripts/star';
 import {Comet} from './scripts/comets';
