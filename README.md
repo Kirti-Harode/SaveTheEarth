@@ -1,6 +1,6 @@
 
 # SAVE THE EARTH
-
+   [Play](https://kirti-harode.github.io/SaveTheEarth/)
 "Save the Earth" is a Solar system game, implemented using javascript, HTML5 canvas, webpack and utilizing Object Oriented design principles.
 
 ## Overview
