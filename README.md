@@ -30,6 +30,7 @@ Game is setup in our solar system which have a stationary sun, and planets revol
 
 <img src="./images/new wireframe.png" >
 
+<img src="./images/screenShot.png" >
 
 ## Implementation Timeline
 

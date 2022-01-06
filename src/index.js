@@ -198,8 +198,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         });
         
         if(comets.length === 0){
-            won.style.display = "flex";
             cancelAnimationFrame(animationId);
+            won.style.display = "flex";
             clearInterval(myInterval);
         }
         
