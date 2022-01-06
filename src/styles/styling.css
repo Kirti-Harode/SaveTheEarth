@@ -1,6 +1,5 @@
 .game{
-    background-image: url('/images/milkyway.jpeg');
-    
+    background-image: url('/images/milkyway.jpeg'); 
 }
 * {
     margin: 0;
@@ -122,17 +121,20 @@ body {
     display: none;
     position: absolute;
     top: 350px;
-    left: 200px;
-    width: 600px;
+    left: 100px;
+    width: 700px;
     height: 260px;
     background-color: rgb(187, 142, 230);
     border-radius: 20px;
     font-family: fantasy, papyrus;
 }
 
+#stop div{
+    /* justify-content: center; */
+}
 #restartButton{
-    margin-top: 10px;
-    padding-left: 10px;
+    /* margin-top: 10px; */
+    /* padding-left: 10px; */
     width: 310px;
     height: 40px;
     border-radius: 15px;
@@ -140,9 +142,9 @@ body {
     font-size: 24px;
 }
 #colision{
-    padding-top: 20px;
-    padding-bottom: 2px;
-    padding-left: 200px;
+    /* padding-top: 20px; */
+    /* padding-bottom: 2px; */
+    /* padding-left: 200px; */
     color: rgb(19, 24, 14);
     font-size: 20px;
 }
@@ -152,18 +154,18 @@ body {
 }
 
 #slogon p{
-   padding-top: 20px;
-    padding-left: 190px;
+   /* padding-top: 20px; */
+    /* padding-left: 190px; */
 }
 #slogon2{
-    padding-left: 100px;
+    /* padding-left: 100px; */
 }
 #image{
-    position: absolute;
+    /* position: absolute; */
     
 }
 #buttonId{
-    padding-top: 20px;
-    padding-left: 200px;
+    /* padding-top: 20px; */
+    /* padding-left: 200px; */
 }
 

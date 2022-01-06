@@ -156,7 +156,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 window.dispatchEvent(customEvent);
                 isColid = true;
                 ctx.drawImage(explosion, earth.x, earth.y);
-                startBar.style.display = "relative";
+                // startBar.style.display = "relative";
 
                 // cancelAnimationFrame(animationId);
             }
@@ -188,45 +188,45 @@ window.addEventListener('DOMContentLoaded', (event) => {
             stopId.style.display = "absolute";  
         }
     }
-    animate();
+    // animate();
     let myInterval;
  // when clicked on start game button start the game
-    // startButton.addEventListener("click", (event)=>{
-    //     animate();
-    //     // console.log(startBar.style.display)
-    //     startBar.style.display = "none"; 
-    //     // countdown timer 
-    //     let startMinute = 1;
-    //     let time = startMinute * 60;
-    //     function updateTimer(){
-    //         let minutes = Math.floor(time/60);
-    //         let seconds = time % 60
+    startButton.addEventListener("click", (event)=>{
+        animate();
+        // console.log(startBar.style.display)
+        startBar.style.display = "none"; 
+        // countdown timer 
+        let startMinute = 1;
+        let time = startMinute * 60;
+        function updateTimer(){
+            let minutes = Math.floor(time/60);
+            let seconds = time % 60
 
-    //         seconds = seconds < 10 ? '0' + seconds : seconds;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    //         timeId.innerHTML = `${minutes}:${seconds}`;
-    //         if(time > 0){
-    //             time--;
-    //         }
-    //     } 
-    //     myInterval = setInterval(updateTimer, 1000);
-    // })
+            timeId.innerHTML = `${minutes}:${seconds}`;
+            if(time > 0){
+                time--;
+            }
+        } 
+        myInterval = setInterval(updateTimer, 1000);
+    })
      
 
 // when clicked on restart game button start the game
     restartButton.addEventListener("click", (event)=>{
         animate();
-        stopId.style.display = "none";
+        // stopId.style.display = "none";
         
     })
 
     window.addEventListener("colision", (event)=>{
         // console.log(stopId)
-        // stopId.style.display = "absolute";
+        stopId.style.display = "flex";
         cancelAnimationFrame(animationId);
         clearInterval(myInterval);
         // ctx.clearRect(0, 0, canvas.width, canvas.height);
-        startBar.style.display = "relative";
+        // startBar.style.display = 'absolute';
         // stopId.reload();
         
     })
