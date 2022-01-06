@@ -6,7 +6,6 @@ import {Gun} from './scripts/gun';
 import {Bullet} from './scripts/bullets';
 import {Explosion} from './scripts/explosion';
 
-
 window.addEventListener('DOMContentLoaded', (event) => {
     const canvas = document.getElementById("mycanvas");
     const ctx = canvas.getContext("2d");
@@ -95,9 +94,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // console.log(event)
     })
     
-
-
-
 // create explosions 
     let explosions = [];
     
@@ -153,11 +149,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
         comets.forEach((comet, cometIndex) =>{
             comet.move();
             // if collides with the earth, end game.
+            
             const distance = Math.hypot((earth.x + earthImg.width/2 )- comet.x, (earth.y + earthImg.height/2) - comet.y);
             if((distance - comet.radius - earthImg.width/2 ) < -9.9){
+                const customEvent = new Event('colision');
+                window.dispatchEvent(customEvent);
                 isColid = true;
                 ctx.drawImage(explosion, earth.x, earth.y);
-                cancelAnimationFrame(animationId);
+                startBar.style.display = "relative";
+
+                // cancelAnimationFrame(animationId);
             }
             
             // if colids remove comet and bullet
@@ -187,17 +188,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
             stopId.style.display = "absolute";  
         }
     }
-    
+    let myInterval;
  // when clicked on start game button start the game
     startButton.addEventListener("click", (event)=>{
         animate();
         // console.log(startBar.style.display)
-        startBar.style.display = "none";
-
+        startBar.style.display = "none"; 
         // countdown timer 
         let startMinute = 1;
         let time = startMinute * 60;
-        setInterval(updateTimer, 1000);
         function updateTimer(){
             let minutes = Math.floor(time/60);
             let seconds = time % 60
@@ -208,13 +207,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if(time > 0){
                 time--;
             }
-        }  
+        } 
+        myInterval = setInterval(updateTimer, 1000);
     })
+     
 
 // when clicked on restart game button start the game
     restartButton.addEventListener("click", (event)=>{
         animate();
         stopId.style.display = "none";
+        
+    })
+
+    window.addEventListener("colision", (event)=>{
+        // console.log(stopId)
+        // stopId.style.display = "absolute";
+        cancelAnimationFrame(animationId);
+        clearInterval(myInterval);
+        // ctx.clearRect(0, 0, canvas.width, canvas.height);
+        startBar.style.display = "relative";
+        // stopId.reload();
         
     })
 });
