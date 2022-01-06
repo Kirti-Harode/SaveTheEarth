@@ -188,6 +188,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             stopId.style.display = "absolute";  
         }
     }
+    animate();
     let myInterval;
  // when clicked on start game button start the game
     // startButton.addEventListener("click", (event)=>{
