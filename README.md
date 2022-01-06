@@ -7,19 +7,18 @@
 
 ## Overview
 
-Game will be setup in our solar system which will have a stationary sun and planets revolving around it (including earth) in circular orbits. There will be an ongoing fire of comets in  the gaming frame which may or may not hit the earth. Player will have a gun at the bottom of the frame from which player can fire bullet in the direction of comets to destroy them. If earth is not destroyed by a comet within a specified time, player wins. There will also be a timer which player will see in the gaming frame.
+Game is setup in our solar system which have a stationary sun, and planets revolving around it (including earth) in circular orbits. There is an ongoing fire of comets in  the gaming frame which may or may not hit the earth. Player have a gun at the bottom of the frame from which player can fire bullet in the direction of comets to destroy them. If earth is not destroyed by a comet within a specified time, player wins. There is also a timer which player can see in the gaming frame.
 
 
 ## Functionality & MVPs
 
-  In Save The Earth, the game's features will be:
+  In Save The Earth, the game's features are:
 
-  * Game will be timer based (no score). Player's job is to save Earth from comets within the time limit.
-  * Player will able to Start the game.
-  * Game will have multiple levels.
+  * Game is timer based (no score). Player's job is to save Earth from comets within the time limit.
+  * Player is able to Start the game.
+  * Game has multiple levels.
   * With each level number of comets will increase and there velocity will also increase.
   
-
 
 ## Technologies, Libraries, APIs
 
@@ -29,7 +28,7 @@ Game will be setup in our solar system which will have a stationary sun and plan
 
 ## Wireframes
 
-<img src="./images/wireframe.png" >
+<img src="./images/new wireframe.png" >
 
 
 ## Implementation Timeline
