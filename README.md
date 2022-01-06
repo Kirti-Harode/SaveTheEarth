@@ -16,7 +16,11 @@ Game is setup in our solar system which have a stationary sun, and planets revol
 
   * Game is timer based (no score). Player's job is to save Earth from comets within the time limit.
   * Player is able to Start the game.
-  * Game has multiple levels.
+        <img src="./images/welcome.png" >
+  * There is a winning message and a button to restart the game, when Player shoot all the comets.
+        <img src="./images/winMsg.png" >
+  * If any comet hits the earth, there is a graphic to show earth destroyed and a pop up with some  slogans and a restart game button.
+        <img src="./images/loseMsg.png" >
   * With each level number of comets will increase and there velocity will also increase.
   
 
