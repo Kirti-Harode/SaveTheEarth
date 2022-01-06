@@ -11,7 +11,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const ctx = canvas.getContext("2d");
 
     console.log("everything is fine, you can do this");
-    let isColid = false;
 // get start button id
     let startButton = document.getElementById("startButton");
 // get timer id
@@ -63,7 +62,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let mars = new Planet((canvas.width/2 - marsImg.width/2),(canvas.height/2 - marsImg.height/2), 20, marsImg, 3/1000, 310); 
    
     let jupiter = new Planet((canvas.width/2 - jupiterImg.width/2),(canvas.height/2 - jupiterImg.height/2), 30, jupiterImg, 1.5/1000, 450);
-   
+
+
 // create stars
     let stars = [];
     for(let i = 0; i < 500; i++){
@@ -79,6 +79,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let color = "grey";
         comets.push(new Comet(x, y, radius, color));
     }
+    
 // create a gun
     let gunId = document.getElementById("gunId")
     let gunImg = new Image();
@@ -101,7 +102,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         bullets.push(bullet);
         // console.log(event)
     })
-    
+
+
 // create explosions 
     let explosions = [];
     
@@ -141,7 +143,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 particle.update();
             }
          })
-        // console.log(bullets);
+       
         // draw bullets when click
         bullets.forEach((bullet, bulletIndex) => {
             bullet.update();
@@ -162,10 +164,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if((distance - comet.radius - earthImg.width/2 ) < -9.9){
                 const customEvent = new Event('colision');
                 window.dispatchEvent(customEvent);
-                isColid = true;
+                
                 ctx.drawImage(explosion, earth.x, earth.y);
-                // startBar.style.display = "relative";
-
+                
                 // cancelAnimationFrame(animationId);
             }
             
@@ -191,12 +192,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     }
                 }   
             })
+            
         });
-        if(isColid){
-            stopId.style.display = "absolute";  
+        if(comets.length){
+            console.log("you won");
         }
+        
     }
-    // animate();
+// when clicked on restart game button start the game
+   restartButton.addEventListener("click", (event)=>{
+        // animate();
+        stopId.style.display = "none";
+        // init();
+    });
+
     let myInterval;
  // when clicked on start game button start the game
     startButton.addEventListener("click", (event)=>{
@@ -220,13 +229,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         myInterval = setInterval(updateTimer, 1000);
     })
      
+// function to restart everything
+    function init(){
+        comets = [];
+        bullets = [];
+        clearInterval(myInterval);
+    }
 
-// when clicked on restart game button start the game
-    restartButton.addEventListener("click", (event)=>{
-        animate();
-        // stopId.style.display = "none";
-        
-    })
 
     window.addEventListener("colision", (event)=>{
         // console.log(stopId)
@@ -238,6 +247,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // stopId.reload();
         
     })
+    // if(comets.length === 0){
+    //     console.log("you won");
+    // }
 });
     
     
