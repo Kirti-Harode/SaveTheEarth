@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const canvas = document.getElementById("mycanvas");
     const ctx = canvas.getContext("2d");
 
-    console.log("everything is fine, you can do this");
+    // console.log("everything is fine, you can do this");
 // get start button id
     let startButton = document.getElementById("startButton");
 // get timer id
@@ -21,6 +21,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let stopId = document.getElementById("stop")
 // get restart button id
     let restartButton = document.getElementById("restartButton")
+// get won msg 
+    let won = document.getElementById("win");
 // explosion image
     let explosionId = document.getElementById("explosion")
     let explosion = new Image();
@@ -173,7 +175,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // if colids remove comet and bullet
             bullets.forEach((bullet, bulletIndex) => {   
                 const distance = Math.hypot(bullet.x - comet.x, bullet.y - comet.y);
-                if((distance - comet.radius - bullet.radius) < 1){
+                if((distance - comet.radius - bullet.radius) < 0.5){
                     comet.color = 'orange';
 
                     // create explosions
@@ -194,8 +196,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             })
             
         });
-        if(comets.length){
-            console.log("you won");
+        
+        if(comets.length === 0){
+            won.style.display = "flex";
+            cancelAnimationFrame(animationId);
+            clearInterval(myInterval);
         }
         
     }
@@ -247,9 +252,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // stopId.reload();
         
     })
-    // if(comets.length === 0){
-    //     console.log("you won");
-    // }
 });
     
     

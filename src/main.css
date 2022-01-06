@@ -173,3 +173,42 @@ body {
 #animationImg{
     display: none;
 }
+
+#win{
+    display: none;
+    position: absolute;
+    top: 350px;
+    left: 100px;
+    width: 720px;
+    height: 290px;
+    background-color: rgb(187, 142, 230);
+    border-radius: 20px;
+    font-family: fantasy, papyrus;
+}
+
+#restartButtonText{
+    width: 310px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgb(102, 30, 218);
+    font-size: 24px;
+}
+#msg{
+    padding-top: 50px;
+    color: rgb(19, 24, 14);
+    font-size: 20px;
+}
+
+#restartButtonText:hover{
+    background-color: rgb(124, 66, 233);
+}
+
+#wonImage{
+    display: flex;
+    /* position: absolute; */
+    
+}
+#restartAgain {
+    padding-top: 50px;
+    /* padding-left: 0px; */
+}
