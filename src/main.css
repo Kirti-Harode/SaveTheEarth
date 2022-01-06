@@ -164,8 +164,11 @@ body {
     /* position: absolute; */
     
 }
-#buttonId{
+#buttonId {
     /* padding-top: 20px; */
     /* padding-left: 200px; */
 }
 
+#animationImg{
+    display: none;
+}

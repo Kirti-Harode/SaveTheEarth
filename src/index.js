@@ -23,26 +23,33 @@ window.addEventListener('DOMContentLoaded', (event) => {
 // get restart button id
     let restartButton = document.getElementById("restartButton")
 // explosion image
+    let explosionId = document.getElementById("explosion")
     let explosion = new Image();
-    explosion.src = '../images/explosion3d_alpha 2.png'
+    explosion.src =  explosionId.src; //'../images/explosion3d_alpha 2.png'
 // get new image for each planet from the image folder
+    let sunId = document.getElementById("sunId")
     let sunImg = new Image();
-    sunImg.src = '../images/sun.jpg';
+    sunImg.src = sunId.src; //'../images/sun.jpg';
 
+    let mercuryId = document.getElementById("mercuryId")
     let mercuryImg = new Image();
-    mercuryImg.src = '../images/mercury_alpha.png';
+    mercuryImg.src = mercuryId.src //'../images/mercury_alpha.png';
 
+    let venusId = document.getElementById("venusId")
     let venusImg = new Image();
-    venusImg.src = '../images/venus_alpha.png';
+    venusImg.src = venusId.src //'../images/venus_alpha.png';
 
+    let earthId = document.getElementById("earthId")
     let earthImg = new Image();
-    earthImg.src = '../images/earth_alpha.png';
+    earthImg.src = earthId.src //'../images/earth_alpha.png';
 
+    let marsId = document.getElementById("marsId")
     let marsImg = new Image();
-    marsImg.src = '../images/mars_alpha.png';
+    marsImg.src = marsId.src //'../images/mars_alpha.png';
 
+    let jupiterId = document.getElementById("jupiterId")
     let jupiterImg = new Image();
-    jupiterImg.src = '../images/jupiter_alpha.png';
+    jupiterImg.src = jupiterId.src //'../images/jupiter_alpha.png';
 
 // create and draw planets using images
     let sun = new Planet((canvas.width/2 - sunImg.width/2), (canvas.height/2 - sunImg.height/2), 50, sunImg, 0, 0); 
@@ -73,8 +80,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         comets.push(new Comet(x, y, radius, color));
     }
 // create a gun
+    let gunId = document.getElementById("gunId")
     let gunImg = new Image();
-    gunImg.src = '../images/gun_alpha1.png'
+    gunImg.src = gunId.src //'../images/gun_alpha1.png'
 
     let gun = new Gun(450, 860, gunImg);
 

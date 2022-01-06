@@ -10,7 +10,7 @@ const config = {
   ],
   output: {
     path: path.join(__dirname, 'dist'), // bundled file in dist/
-    filename: '[name].js',
+    filename: 'main.js',
   },
   module: {
     rules: [
@@ -31,6 +31,11 @@ const config = {
           // },
           // 'sass-loader', // compiles sass to css
         ]
+
+      },
+      {
+        test: /\.html$/,
+        use: ["html-loader"]
       }
     ],
   },
