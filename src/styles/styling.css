@@ -1,3 +1,8 @@
+.game{
+    background-image: url('/images/dark1.png');
+    /* background-image: url('/images/dark2.jpeg'); */
+    /* background-image: url('/images/un.jpeg'); */
+}
 * {
     margin: 0;
     padding: 0;
@@ -37,26 +42,86 @@ body {
 
 #timer{
     position: absolute;
-    /* width: 100px;
-    height: 30px;
-    background-color: rgb(85, 32, 32);
-    border-radius: 10px;
-    border: 2px solid #ccc; */
     padding-left: 10px;
     padding-top: 5px;
     user-select: none;
-    color:rgb(216, 200, 240);
+    color:rgb(166, 123, 230);
     font-size: 30px;
+    font-family: fantasy, papyrus;
 }
 
 #links{
     position: absolute;
     user-select: none;
     padding-left: 840px;
-    padding-top: 50px;
+    padding-top: 30px;
     margin-bottom: 5px;
+
 }
 
 #links div{
-    padding-top: 10px;
+    padding-top: 15px;
+}
+
+
+#level{
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 50px;
+    user-select: none;
+    color:rgb(171, 129, 233);
+    font-size: 30px;
+    font-family: fantasy, papyrus;
+}
+
+#instruction{
+    position: absolute;
+    padding-left: 120px;
+    padding-top: 100px;
+    user-select: none;
+    color:rgb(165, 94, 206);
+    font-family: fantasy, papyrus;
+    font-size: 20px;
+}
+
+#start{
+    position: absolute;
+    top: 350px;
+    left: 200px;
+    color:rgb(26, 59, 3);
+    font-family: fantasy, papyrus;
+    padding-top: 20px;
+    padding-left: 100px;
+    /* width: 500px; */
+    /* height: 300px; */
+    /* background-color: rgb(113, 65, 175); */
+    /* border-radius: 15px; */
+    
+}
+
+#startButton{
+    padding-left: 8px;
+    width: 300px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgb(102, 30, 218);
+    font-size: 24px;
+}
+
+#welcome{
+    padding-bottom: 50px;
+    padding-left: 1px;
+    color: rgb(157, 207, 107);
+    font-size: 20px;
+}
+/* 
+#title{
+    padding-bottom: 10px;
+    padding-left: 10px;
+    color: rgb(157, 207, 107);
+    font-size: 50px;
+    font-weight: bolder;
+} */
+#startButton:hover{
+    background-color: rgb(124, 66, 233);
 }

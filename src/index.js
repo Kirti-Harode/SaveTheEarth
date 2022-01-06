@@ -5,7 +5,7 @@ import {Comet} from './scripts/comets';
 import {Gun} from './scripts/gun';
 import {Bullet} from './scripts/bullets';
 import {Explosion} from './scripts/explosion';
-
+import {updateTimer} from './scripts/game'
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const canvas = document.getElementById("mycanvas");
@@ -13,7 +13,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     console.log("everything is fine, you can do this");
 
-
+// get start button id
+    let startButton = document.getElementById("startButton");
+// get timer id
+    let timeId = document.getElementById("timeId");
+// get start model id
+    let startBar = document.getElementById("start");
 // get new image for each planet from the image folder
     let sunImg = new Image();
     sunImg.src = '../images/sun.jpg';
@@ -53,7 +58,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 // create comets
     let comets = [];
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < 10; i++){
         let radius = Math.floor(Math.random() * 15) + 10;
         let x = Math.random() * (canvas.width - radius * 2) + radius;
         let y = Math.random() * (canvas.height - radius * 2) + radius;
@@ -82,20 +87,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
         bullets.push(bullet);
         // console.log(event)
     })
-    function timer(){
-        // get timer by id
-        let timeId = document.getElementById("timeId");
-        // decrease timer by 1 sec
-        let time = 10;
-        setTimeout(function(){
-            // console.log(timerId);
-            if(time > 0){
-                time--;
-                timeId.innerHTML = time;
-            }
-           
-            // console.log(timeId.innerHTML);
-        }, 1000);
+    
+
+// countdown timer 
+    let startMinute = 1;
+    let time = startMinute * 60;
+
+    setInterval(updateTimer, 1000);
+
+    function updateTimer(){
+        let minutes = Math.floor(time/60);
+        let seconds = time % 60
+
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        timeId.innerHTML = `${minutes}:${seconds}`;
+        if(time > 0){
+            time--;
+        }
+        // if(time === 0){
+        //     timeId.innerHTML = `${minutes}:${seconds}`;
+        // }
     }
 
 // create explosions 
@@ -154,9 +166,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             comet.move();
             
             // if collides with the earth, end game.
-            const distance = Math.hypot(earth.x - comet.x, earth.y - comet.y);
-            if((distance - comet.radius - earthImg.width + 10) < 0.5){
-               // cancelAnimationFrame(animationId);
+            const distance = Math.hypot((earth.x + earthImg.width/2 )- comet.x, (earth.y + earthImg.height/2) - comet.y);
+            if((distance - comet.radius - earthImg.width/2 ) < -10){
+               cancelAnimationFrame(animationId);
             }
             //     // if colids remove comet and bullet
             bullets.forEach((bullet, bulletIndex) => {   
@@ -171,7 +183,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                      }
                    
 
-                    if(comet.radius-8 > 8){
+                    if(comet.radius - 8 > 8){
                         comet.radius -= 8;
                         bullets.splice(bulletIndex, 1);
                     }
@@ -183,9 +195,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
             })
         });
         
-        timer();
     }
-    animate();
+    startButton.addEventListener("click", (event)=>{
+        animate();
+        startBar.style.display = "none";
+    })
+    
     
 });
     

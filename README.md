@@ -13,8 +13,7 @@ Game will be setup in our solar system which will have a stationary sun and plan
   In Save The Earth, the game's features will be:
 
   * Game will be timer based (no score). Player's job is to save Earth from comets      within the time limit.
-  * Player will able to Start, pause the game.
-  * Pause and start button for music.
+  * Player will able to Start the game.
   * Game will have multiple levels.
   * With each level number of comets wil increase and there direction will change.
   
@@ -45,4 +44,5 @@ Game will be setup in our solar system which will have a stationary sun and plan
 ## Bonus features
 
   * Add option for reflecting the comets instead shooting them.
-  * make movable gun.
+  * Make movable gun.
+  * Add music to the game.
