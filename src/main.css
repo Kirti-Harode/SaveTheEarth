@@ -54,13 +54,29 @@ body {
     padding-left: 840px;
     padding-top: 30px;
     margin-bottom: 5px;
-
 }
 
 #links div{
     padding-top: 15px;
 }
 
+#music{
+    position: absolute;
+    user-select: none;
+    padding-left: 10px;
+    padding-top: 120px;
+    margin-bottom: 5px;
+}
+#musicbutton{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(171, 129, 233);
+    border-radius: 200px;
+}
+#musicbutton:hover{
+    cursor: pointer;
+    background-color: rgb(124, 66, 233);
+}
 
 #level{
     position: absolute;
@@ -116,6 +132,7 @@ body {
 }
 
 #startButton:hover{
+    cursor: pointer;
     background-color: rgb(124, 66, 233);
 }
 
@@ -137,6 +154,7 @@ body {
 #restartButton{
     /* margin-top: 10px; */
     /* padding-left: 10px; */
+    cursor: pointer;
     width: 310px;
     height: 40px;
     border-radius: 15px;
@@ -152,6 +170,7 @@ body {
 }
 
 #restartButton:hover{
+    cursor: pointer;
     background-color: rgb(124, 66, 233);
 }
 
@@ -200,6 +219,7 @@ body {
 }
 
 #restartButtonText:hover{
+    cursor: pointer;
     background-color: rgb(124, 66, 233);
 }
 
