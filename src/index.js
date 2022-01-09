@@ -230,10 +230,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 // when clicked on restart game button start the game
    restartButton.addEventListener("click", (event)=>{
-        // animate();
+
         stopId.style.display = "none";
         
-        // init();
     });
 
     let myInterval;
@@ -241,7 +240,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     startButton.addEventListener("click", (event)=>{
         animate();
         myMusic.play();
-        // console.log(startBar.style.display)
+        
         startBar.style.display = "none"; 
         // countdown timer 
         let startMinute = 1;
@@ -260,24 +259,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
         myInterval = setInterval(updateTimer, 1000);
     })
      
-// function to restart everything
-    // function init(){
-    //     comets = [];
-    //     bullets = [];
-    //     clearInterval(myInterval);
-    // }
-
-
     window.addEventListener("colision", (event)=>{
-        // console.log(stopId)
+       
         stopId.style.display = "flex";
         mySound2.play();
         myMusic.stop();
         cancelAnimationFrame(animationId);
         clearInterval(myInterval);
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // startBar.style.display = 'absolute';
-        // stopId.reload();
+       
         
     })
 });

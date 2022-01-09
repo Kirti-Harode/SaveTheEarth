@@ -28,6 +28,7 @@ The game is set up in our solar system which has a stationary sun and planets re
   <img src="./images/loseMsg.png" >
 
   * With each level number of comets will increase and their velocity will also increase.
+  * There are music and sounds, and a button to stop the music.
   
 
 ## Technologies, Libraries, APIs
@@ -95,6 +96,5 @@ The game is set up in our solar system which has a stationary sun and planets re
 
 ## Future features
   * Make movable gun.
-  * Add music to the game.
   * Add images to the comets.
   * Add option for reflecting the comets instead shooting them.
