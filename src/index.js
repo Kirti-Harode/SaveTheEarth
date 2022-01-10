@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const ctx = canvas.getContext("2d");
 
 // num of asteroids to change with level
-    let numAsteroids = 1;
+    let numAsteroids = 3;
 
 // music and sound 
     let myMusic;
@@ -289,7 +289,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
        let s_click = new Event('click');
        startButton.dispatchEvent(s_click);
        level.innerHTML ++;
-        numAsteroids += 3;
+        numAsteroids += 2;
         add_comets();
         // clearInterval(myInterval); 
         // myInterval = setInterval(updateTimer, 1000);

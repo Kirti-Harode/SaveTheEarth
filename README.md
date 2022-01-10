@@ -14,11 +14,12 @@ The game is set up in our solar system which has a stationary sun and planets re
 
   In Save The Earth, the game's features are:
 
-  * The game is timer-based (no score). The Player's job is to save Earth from comets within the time limit.
+ 
   * The player is able to start the game.
 
   <img src="images/welcome.png" >
 
+  * The game is timer-based (no score). The Player's job is to save Earth from comets within the time limit.
   * There is a winning message and a button to restart the game when the player destroys all the comets.
 
   <img src="./images/winMsg.png" >
@@ -28,7 +29,7 @@ The game is set up in our solar system which has a stationary sun and planets re
   <img src="./images/loseMsg.png" >
 
   * With each level number of comets will increase and their velocity will also increase.
-  * There are music and sounds, and a button to stop the music.
+  * There are music and sounds for explosions, and a button to stop the music.
   
 
 ## Technologies, Libraries, APIs
@@ -91,7 +92,7 @@ The game is set up in our solar system which has a stationary sun and planets re
       }
       ```
   * **Day 5:**  Code for showing explosion when comet colids with the earth, set timer, add start game button and when times up or comet hit the earth display Game over message.
-  * **Day 6:**  Style code, add some images to pop-ups Add more levels (increase the no. of comets and their velocity as the level increases)
+  * **Day 6:**  Style code, add some images to pop-ups Add more levels (increase the no. of comets and their velocity as the level increases), add music and sound to the game and create a button to stop the music.
   * **Day 7:** Add GitHub and LinkedIn links, add instructions and the game title on the top of the page, conduct Testing, and deploy the project on the Github page.
 
 ## Future features
