@@ -6,10 +6,14 @@ import {Gun} from './scripts/gun';
 import {Bullet} from './scripts/bullets';
 import {Explosion} from './scripts/explosion';
 import {Sound} from './scripts/sound';
+import { TopLevelOptions } from "@babel/preset-env/lib/options";
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const canvas = document.getElementById("mycanvas");
     const ctx = canvas.getContext("2d");
+
+// num of asteroids to change with level
+    let numAsteroids = 1;
 
 // music and sound 
     let myMusic;
@@ -18,7 +22,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     myMusic = new Sound("./music/spacetheme.mp3");
     mySound1 = new Sound("./music/rumble.flac")
     mySound2 = new Sound("./music/DeathFlash.flac")
-
+// get level id to change the level
+    let level = document.getElementById("levelId");
+    level.innerHTML = 1;
+// get next button id 
+    let nextlevel = document.getElementById("nextlevel");
 // get music button id 
     let music = document.getElementById("music");
 // get start button id
@@ -67,42 +75,57 @@ window.addEventListener('DOMContentLoaded', (event) => {
     saturnImg.src = saturnId.src;
 
 // create and draw planets using images
-    let sun = new Planet((canvas.width/2 - sunImg.width/2), (canvas.height/2 - sunImg.height/2), 50, sunImg, 0, 0); 
-    
-    let mercury = new Planet((canvas.width/2 - mercuryImg.width/2),(canvas.height/2 - mercuryImg.height/2), 5, mercuryImg, 25/1000, 110);
+    let sun;
+    let mercury;
+    let venus;
+    let earth;
+    let mars;
+    let jupiter;
+    let saturn;
+    function createPlanets(){
 
-    let venus = new Planet((canvas.width/2 - venusImg.width/2),(canvas.height/2 - venusImg.height/2), 15, venusImg, 10/1000, 180 ); 
+        sun = new Planet((canvas.width/2 - sunImg.width/2), (canvas.height/2 - sunImg.height/2), 50, sunImg, 0, 0); 
     
-    let earth = new Planet((canvas.width/2 - earthImg.width/2),(canvas.height/2 - earthImg.height/2), 20, earthImg, 4/1000, 230); 
+        mercury = new Planet((canvas.width/2 - mercuryImg.width/2),(canvas.height/2 - mercuryImg.height/2), 5, mercuryImg, 25/1000, 110);
+
+        venus = new Planet((canvas.width/2 - venusImg.width/2),(canvas.height/2 - venusImg.height/2), 15, venusImg, 10/1000, 180 ); 
     
-    let mars = new Planet((canvas.width/2 - marsImg.width/2),(canvas.height/2 - marsImg.height/2), 20, marsImg, 3/1000, 300); 
+        earth = new Planet((canvas.width/2 - earthImg.width/2),(canvas.height/2 - earthImg.height/2), 20, earthImg, 4/1000, 230); 
+    
+        mars = new Planet((canvas.width/2 - marsImg.width/2),(canvas.height/2 - marsImg.height/2), 20, marsImg, 3/1000, 300); 
    
-    let jupiter = new Planet((canvas.width/2 - jupiterImg.width/2),(canvas.height/2 - jupiterImg.height/2), 30, jupiterImg, 1.5/1000, 400);
+        jupiter = new Planet((canvas.width/2 - jupiterImg.width/2),(canvas.height/2 - jupiterImg.height/2), 30, jupiterImg, 1.5/1000, 400);
 
-    let saturn = new Planet((canvas.width/2 - saturnImg.width/2),(canvas.height/2 - saturnImg.height/2), 30, saturnImg, 1.5/1000, 620);
-
+        saturn = new Planet((canvas.width/2 - saturnImg.width/2),(canvas.height/2 - saturnImg.height/2), 30, saturnImg, 1.5/1000, 620);
+    }
 
 // create stars
     let stars = [];
+   
     for(let i = 0; i < 500; i++){
         stars.push(new Star());
     }
+    
 // create comets
     let comets = [];
-    for(let i = 0; i < 5; i++){
-        let radius = Math.floor(Math.random() * 15) + 10;
-        let x = Math.random() * (canvas.width - radius * 2) + radius;
-        let y = Math.random() * (canvas.height - radius * 2) + radius;
-        // let color = "#505050";
-        let color = "grey";
-        comets.push(new Comet(x, y, radius, color));
+    function add_comets(){
+        for(let i = 0; i < numAsteroids; i++){
+            let radius = Math.floor(Math.random() * 15) + 10;
+            // let x = Math.random() * (canvas.width - radius * 2) + radius;
+            // let y = Math.random() * (canvas.height - radius * 2) + radius;
+            // let color = "#505050";
+            let x = Math.random() * 200 + radius;
+            let y = Math.random() * 200 + radius;
+            let color = "grey";
+            comets.push(new Comet(x, y, radius, color));
+        }
     }
+   
     
 // create a gun
     let gunId = document.getElementById("gunId")
     let gunImg = new Image();
     gunImg.src = gunId.src //'../images/gun_alpha1.png'
-
     let gun = new Gun(450, 860, gunImg);
 
 // draw bullets when click
@@ -121,7 +144,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // console.log(event)
     })
 
+// countdown timer 
+    let startMinute = 1;
+    let time = startMinute * 60;
+    function updateTimer(){
+        let minutes = Math.floor(time/60);
+        let seconds = time % 60
 
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        timeId.innerHTML = `${minutes}:${seconds}`;
+        if(time > 0){
+            time--;
+        }
+    }  
 // create explosions 
     let explosions = [];
     
@@ -221,6 +257,44 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
         
     }
+    let myInterval;
+// when clicked on start game button start the game
+    startButton.addEventListener("click", (event)=>{
+        myMusic.play();
+        startBar.style.display = "none"; 
+        won.style.display = "none";
+        startMinute = 1;
+        time = startMinute * 60;
+        clearInterval(myInterval); 
+        myInterval = setInterval(updateTimer, 1000);
+        
+       
+        createPlanets();
+        add_comets();
+        animate();
+    })
+//  when colides with earth
+    window.addEventListener("colision", (event)=>{
+       
+        stopId.style.display = "flex";
+        mySound2.play();
+        myMusic.stop();
+        cancelAnimationFrame(animationId);
+        clearInterval(myInterval); 
+    })
+// add next level
+    nextlevel.addEventListener("click", (event)=>{
+       // myMusic.play();
+       //won.style.display = "none";
+       let s_click = new Event('click');
+       startButton.dispatchEvent(s_click);
+       level.innerHTML ++;
+        numAsteroids += 3;
+        add_comets();
+        // clearInterval(myInterval); 
+        // myInterval = setInterval(updateTimer, 1000);
+        //animate();
+    })
 // music pause button
     music.addEventListener("click", (event)=>{
         myMusic.stop();
@@ -230,45 +304,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 // when clicked on restart game button start the game
    restartButton.addEventListener("click", (event)=>{
-
-        stopId.style.display = "none";
-        
+       // stopId.style.display = "none";
+       let s_click = new Event('click');
+       startButton.dispatchEvent(s_click);
     });
-
-    let myInterval;
- // when clicked on start game button start the game
-    startButton.addEventListener("click", (event)=>{
-        animate();
-        myMusic.play();
-        
-        startBar.style.display = "none"; 
-        // countdown timer 
-        let startMinute = 1;
-        let time = startMinute * 60;
-        function updateTimer(){
-            let minutes = Math.floor(time/60);
-            let seconds = time % 60
-
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-
-            timeId.innerHTML = `${minutes}:${seconds}`;
-            if(time > 0){
-                time--;
-            }
-        } 
-        myInterval = setInterval(updateTimer, 1000);
-    })
-     
-    window.addEventListener("colision", (event)=>{
-       
-        stopId.style.display = "flex";
-        mySound2.play();
-        myMusic.stop();
-        cancelAnimationFrame(animationId);
-        clearInterval(myInterval);
-       
-        
-    })
+ 
 });
     
     

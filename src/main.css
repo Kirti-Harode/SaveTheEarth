@@ -148,6 +148,7 @@ body {
     font-family: fantasy, papyrus;
 }
 
+
 /* #stop div{
     justify-content: center;
 } */
@@ -155,11 +156,12 @@ body {
     /* margin-top: 10px; */
     /* padding-left: 10px; */
     cursor: pointer;
-    width: 310px;
+    width: 300px;
     height: 40px;
     border-radius: 15px;
     background-color: rgb(102, 30, 218);
     font-size: 24px;
+    /* padding-left: 20px; */
 }
 #colision{
     /* padding-top: 20px; */
@@ -205,6 +207,18 @@ body {
     font-family: fantasy, papyrus;
 }
 
+#nextlevel{
+    cursor: pointer;
+    width: 310px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgb(102, 30, 218);
+    font-size: 24px;
+}
+#nextlevel:hover{
+    cursor: pointer;
+    background-color: rgb(124, 66, 233);
+}
 #restartButtonText{
     width: 310px;
     height: 40px;
@@ -212,6 +226,7 @@ body {
     background-color: rgb(102, 30, 218);
     font-size: 24px;
 }
+
 #msg{
     padding-top: 50px;
     color: rgb(19, 24, 14);
@@ -229,6 +244,6 @@ body {
     
 }
 #restartAgain {
-    padding-top: 50px;
+    padding-top: 30px;
     /* padding-left: 0px; */
 }
