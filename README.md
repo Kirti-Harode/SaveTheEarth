@@ -2,6 +2,8 @@
 # SAVE THE EARTH
 
   [Click here to Play](https://kirti-harode.github.io/SaveTheEarth/)
+
+  NOTE: Play it in a minimized window. In full screen, it doesn't sense the click correctly (working on it).
    
 "Save the Earth" is a Solar system game, implemented using javascript, HTML5 canvas, webpack and utilizing Object Oriented design principles.
 
@@ -99,3 +101,4 @@ The game is set up in our solar system which has a stationary sun and planets re
   * Make movable gun.
   * Add images to the comets.
   * Add option for reflecting the comets instead shooting them.
+  * Make it work for every window size (including phone).
