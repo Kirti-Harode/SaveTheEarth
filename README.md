@@ -29,7 +29,7 @@ The game is set up in our solar system which has a stationary sun and planets re
   <img src="./images/loseMsg.png" >
 
   * With each level number of comets will increase and their velocity will also increase.
-  * There are music and sounds for explosions, and a button to stop the music.
+  * There is music and sounds for explosions, and a button to stop the music.
   
 
 ## Technologies, Libraries, APIs
