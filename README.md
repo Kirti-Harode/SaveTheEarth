@@ -22,9 +22,9 @@ The game is set up in our solar system which has a stationary sun and planets re
   <img src="images/welcome.png" >
 
   * The game is timer-based (no score). The Player's job is to save Earth from comets within the time limit.
-  * There is a winning message and a button to restart the game when the player destroys all the comets.
+  * There is a winning message and a button to restart the game when the player destroys all the comets and a next button to move on to the next level.
 
-  <img src="./images/winMsg.png" >
+  <img src="./images/next.png" >
 
   * If any comet hits the earth, there is a graphic to show an explosion and a pop-up with some slogans and a restart game button.
 
