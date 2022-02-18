@@ -298,8 +298,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 // music pause button
     music.addEventListener("click", (event)=>{
         myMusic.stop();
-        mySound2.stop();
-        mySound1.stop();
+        // mySound2.stop();
+        // mySound1.stop();
+        // document.getElementById("audio").remove();
     });
 
 // when clicked on restart game button start the game
