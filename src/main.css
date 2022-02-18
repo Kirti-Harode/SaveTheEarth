@@ -90,18 +90,22 @@ body {
 
 #instruction{
     position: absolute;
-    padding-left: 120px;
-    padding-top: 100px;
     user-select: none;
-    /* color:rgb(165, 94, 206); */
+    margin-top: 60px;
     color: rgb(235, 210, 70);
     font-family: fantasy, papyrus;
     font-size: 20px;
+    width: 800px;
+    /* margin-right: 20px; */
 }
-
+#p2-instruction{
+    margin-left: 262px;
+}
 #start{
-    display: relative;
+    display: flex;
+    flex-direction: column;
     position: absolute;
+    align-items: center;
     top: 350px;
     left: 200px;
     color:rgb(26, 59, 3);
@@ -114,26 +118,34 @@ body {
     /* border-radius: 15px; */
     
 }#startgame{
-    padding-left: 50px;
+    margin-top: 20px;
+    padding-left: 30px;
 }
 #startButton{
+    margin-top: 50px;
     padding-left: 10px;
     width: 300px;
     height: 40px;
     border-radius: 15px;
-    background-color: rgb(102, 30, 218);
+    /* background-color: rgb(102, 30, 218); */
+    background-color: rgb(41, 88, 228);
+
     font-size: 24px;
 }
 
 #welcome{
-    padding-bottom: 50px;
-    color: rgb(235, 210, 70);
+    /* padding-bottom: 50px; */
+    /* margin-top: 10px; */
+    /* color: rgb(235, 210, 70); */
+    color: rgb(68, 107, 226);
     font-size: 20px;
+    margin-left: 20px;
 }
 
 #startButton:hover{
     cursor: pointer;
-    background-color: rgb(124, 66, 233);
+    /* background-color: rgb(124, 66, 233); */
+    background-color: rgb(24, 74, 224);
 }
 
 #stop{
