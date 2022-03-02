@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
    
         jupiter = new Planet((canvas.width/2 - jupiterImg.width/2),(canvas.height/2 - jupiterImg.height/2), 30, jupiterImg, 1.5/1000, 420);
 
-        saturn = new Planet((canvas.width/2 - saturnImg.width/2),(canvas.height/2 - saturnImg.height/2), 30, saturnImg, 1.5/1000, 640);
+        saturn = new Planet((canvas.width/2 - saturnImg.width/2),(canvas.height/2 - saturnImg.height/2), 30, saturnImg, 1.5/1000, 680);
     }
 
 // create stars
