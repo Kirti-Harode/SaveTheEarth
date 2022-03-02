@@ -28,13 +28,23 @@
 
 <body>
     <div class="game">
-        <div id="timer">
-            <span>Timer: </span><span id="timeId"></span>
-        </div>
+        <div class="left-side-bar">
+            <div id="timer">
+                <span>Timer: </span><span id="timeId"></span>
+            </div>
+    
+            <div id="level">
+                <span>level: </span><span id="levelId"></span>
+            </div>
 
-        <div id="level">
-            <span>level: </span><span id="levelId"></span>
+            <div id="music">
+                <button id="musicbutton"><img src="images/pause_alpha1.png"></button>
+            </div>
+            <div id="PlayMusic">
+                <button id="playmusicbutton"><img src="images/play_alpha.png"></button>
+            </div>
         </div>
+       
 
         <div id="gameName"><h1>Save The Earth</h1></div>
 
@@ -47,9 +57,7 @@
             </div>
         </div>
         
-        <div id="music">
-            <button id="musicbutton"><img src="images/pause_alpha1.png"></button>
-        </div>
+       
         
         <div id="start">
             <div id="welcome">
@@ -99,7 +107,9 @@
           
         </div>
 
-        <canvas id="mycanvas" width ="900" height="900" style="border:1px solid #000000;"></canvas>
+        <!-- <img id ="gunId" src="images/gun_alpha1.png"> -->
+
+        <canvas id="mycanvas"  style="border:1px solid #000000; "></canvas>
         
     </div>
     <script src="./dist/main.js"></script>

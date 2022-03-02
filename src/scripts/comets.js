@@ -42,7 +42,7 @@ export class Comet {
         if((this.x + this.radius) > canvas.width || (this.x - this.radius) < 0){
             this.dx = -this.dx;
         }
-        if((this.y + this.radius) > canvas.width || (this.y - this.radius) < 0){
+        if((this.y + this.radius) > canvas.height || (this.y - this.radius) < 0){
             this.dy = -this.dy;
         }
     }
