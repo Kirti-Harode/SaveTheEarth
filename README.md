@@ -16,6 +16,7 @@ The game is set up in our solar system which has a stationary sun and planets re
 
   In Save The Earth, the game's features are:
 
+<img src="images/STE.gif" >
  
   * The player is able to start the game.
 
